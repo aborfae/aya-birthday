@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aya Birthday Surprise — Computer Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+  <div id="fxRain" class="fx-rain"></div>
+
+  <audio id="birthdayAudio" preload="auto" src="assets/shebr-w-nos.mp3"></audio>
+  <audio id="sadAudio" preload="auto" src="assets/houda-khayebt.mp3"></audio>
+
+  <main class="site">
+    <!-- PAGE 1 -->
+    <section id="lockScreen" class="screen active lock-screen">
+      <div class="lux-bg">
+        <span class="rose-corner top-left">🌹</span>
+        <span class="rose-corner top-right">🎀</span>
+        <span class="rose-corner bottom-left">🧸</span>
+        <span class="rose-corner bottom-right">🎁</span>
+        <span class="floating-heart h1">💗</span>
+        <span class="floating-heart h2">💖</span>
+        <span class="floating-heart h3">🌸</span>
+        <span class="floating-heart h4">✨</span>
+      </div>
+
+      <div class="lock-shell lux-lock-shell">
+        <div class="lock-head lux-lock-head">
+          <div class="heart-lock">💖🔒</div>
+          <h1>The Surprise Will Unlock In</h1>
+          <div class="date-line lux-date"><span></span>2026 / 6 / 21 - 12:01 AM<span></span></div>
+        </div>
+
+        <div class="countdown lux-countdown" role="timer">
+          <div class="time-box"><strong id="days">000</strong><span>Days</span></div>
+          <div class="time-box"><strong id="hours">00</strong><span>Hours</span></div>
+          <div class="time-box"><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div class="time-box"><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+
+        <div class="glass-card password-card lux-password-card">
+          <div class="lux-bow">🎀</div>
+          <h2>Unlock the Secret</h2>
+
+          <p class="question-ar big-question">إيه أكتر حاجة بتفكرني بي أية؟</p>
+
+          <form id="passwordForm" class="password-form" autocomplete="off">
+            <div class="input-wrap lux-input">
+              <span aria-hidden="true">♡</span>
+              <input id="passwordInput" name="password" type="text" placeholder="Type the password..." />
+              <span aria-hidden="true">🧸</span>
+            </div>
+            <button type="submit" class="primary-btn lux-unlock-btn">Unlock</button>
+          </form>
+
+          <p id="passwordFeedback" class="feedback"></p>
+          <div class="mail-note lux-mail-note">Your answer will be sent to Aya at exactly 12:05 AM</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section id="birthdayScreen" class="screen birthday-screen">
+      <div class="romance-rain" aria-hidden="true">
+        <span>💗</span><span>🌹</span><span>💕</span><span>🌸</span><span>💖</span><span>🌷</span>
+        <span>💗</span><span>🌹</span><span>💕</span><span>🌸</span><span>💖</span><span>🌷</span>
+      </div>
+
+      <header class="top-brand">
+        <span class="script-logo">For Aya</span>
+        <button id="playBirthdayFallback" class="ghost-btn hidden" type="button">Play the birthday mood 🎵</button>
+      </header>
+
+      <div class="birthday-stage">
+        <p class="open-note">Click the black gift envelope to open your message ♡</p>
+
+        <div id="giftEnvelope" class="gift-envelope" aria-live="polite">
+          <button id="envelopeBtn" class="envelope-click-zone" type="button" aria-label="Open birthday letter">
+            <span class="env-back"></span>
+            <span class="env-flap"></span>
+            <span class="env-front"></span>
+            <span class="env-seal">For Aya</span>
+            <span class="env-tap">Open me 💌</span>
+          </button>
+
+          <article id="birthdayLetter" class="letter-paper">
+            <h1>Happy Birthday,<br><span>Aya 🎂🌸</span></h1>
+            <p class="arabic-main">كل سنة وإنتِ أجمل حاجة حصلت في يومي 💗</p>
+            <div class="divider">❤</div>
+            <p>Today is not just your birthday...</p>
+            <p>It’s the day the world became a little softer,<br>a little brighter,<br>and a lot more beautiful because of you.</p>
+            <p class="arabic-text">النهاردة مش يوم عادي...<br>ده اليوم اللي اتولدت فيه أية،<br>الشخص اللي وجوده لوحده كفاية يخلي أي حاجة أحلى.</p>
+            <p class="signature-line">I made this little world just for you...</p>
+            <p class="soft-note">because a normal message was not enough.</p>
+
+            <div class="gift-card-row">
+              <button id="giftCardBtn" class="gift-card-btn" type="button">
+                <span class="gift-icon">🎁</span>
+                <span><strong>A small gift for you</strong><small>Tap me ♡</small></span>
+              </button>
+              <p id="giftReveal" class="gift-reveal hidden">💝 This little page was made only for Aya.</p>
+            </div>
+
+            <div class="music-card">
+              <img src="assets/shebr-cover.jpg" alt="Shebr W Nos cover" />
+              <div class="track-info">
+                <span>Now playing</span>
+                <strong>Shebr W Nos</strong>
+                <small>Angham & Mahmoud El Esseily</small>
+              </div>
+              <button id="birthdayToggle" class="round-play" type="button">▶</button>
+            </div>
+
+            <div class="ready-zone">
+              <h2>Are you ready for your surprises?</h2>
+              <div class="choice-row">
+                <button id="yesBtn" class="choice-btn yes" type="button">Yes, show me 💗</button>
+                <button id="notReadyBtn" class="choice-btn no" type="button">I'm not ready 🙈</button>
+              </div>
+              <p class="tiny-footer">This is the beginning of something beautiful.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2B -->
+    <section id="sadScreen" class="screen sad-screen">
+      <div class="sad-wrap">
+        <button id="backToBirthday" class="back-btn" type="button">← Back</button>
+
+        <div class="sad-grid">
+          <aside class="sad-card sad-player">
+            <div class="broken-heart-icon">💔</div>
+            <img class="sad-cover" src="assets/houda-cover.jpg" alt="Houda Bondok song cover" />
+            <h1>خيبت توقعاتك</h1>
+            <p>Houda Bondok</p>
+            <button id="sadToggle" class="sad-play-btn" type="button">Play the sad song 💔</button>
+
+            <div class="progress-wrap">
+              <div class="progress-info">
+                <span id="sadCurrent">00:22</span>
+                <span id="sadDuration">--:--</span>
+              </div>
+              <input id="sadProgress" type="range" min="22" value="22" step="0.1" />
+            </div>
+            <p class="sad-note">The song starts from 00:22.</p>
+          </aside>
+
+          <article class="sad-card lyrics-panel" dir="rtl">
+            <h2>كلمات الأغنية</h2>
+            <p class="lyrics-sub">الكلمات بنفس التقسيم اللي بعته، والمقطع الحالي بيتنور مع الصوت.</p>
+            <div id="lyricsGroups" class="lyrics-groups"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section id="catScreen" class="screen cat-screen">
+      <div class="cat-bg"></div>
+
+      <div class="cat-game">
+        <header class="game-head">
+          <p class="eyebrow">Cat Gate</p>
+          <h1>Do you wanna play?</h1>
+        </header>
+
+        <div id="speechBubble" class="speech-bubble">I brought something cute for Aya...</div>
+
+        <div class="cat-stage">
+          <div id="gunWrap" class="gun-wrap hidden" aria-hidden="true">
+            <div class="gun-body"></div>
+            <div class="gun-barrel"></div>
+            <div class="gun-grip"></div>
+          </div>
+
+          <div id="cat" class="cat-character">
+            <div class="cat-tail"></div>
+            <div class="cat-body"></div>
+            <div class="cat-head">
+              <span class="ear left"></span>
+              <span class="ear right"></span>
+              <span class="eye left"></span>
+              <span class="eye right"></span>
+              <span class="nose"></span>
+              <span class="mouth"></span>
+              <span class="whisker wl1"></span>
+              <span class="whisker wl2"></span>
+              <span class="whisker wr1"></span>
+              <span class="whisker wr2"></span>
+            </div>
+            <div class="paw left"></div>
+            <div class="paw right"></div>
+          </div>
+
+          <div id="roseBadge" class="rose-badge">🌹</div>
+        </div>
+
+        <div class="game-actions">
+          <button id="catYes" class="game-btn yes" type="button">Yes</button>
+          <button id="catNo" class="game-btn no" type="button">No</button>
+        </div>
+
+        <div class="status-row">
+          <p id="noCounter" class="counter">No counter: 5</p>
+          <p id="playHint" class="play-hint">Are you sure you don’t want to try No?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 -->
+    <section id="nextScreen" class="screen page4-screen">
+      <video id="page4BgVideo" class="page4-bg-video" src="assets/page4-background-video.mp4" playsinline loop></video>
+      <div class="page4-video-overlay"></div>
+      <button id="page4VideoToggle" class="page4-video-toggle" type="button">تشغيل الفيديو بالصوت ▶</button>
+
+      <div class="page4-rain" aria-hidden="true">
+        <span>💗</span><span>🌸</span><span>✨</span><span>🌹</span><span>💕</span><span>💖</span>
+        <span>💗</span><span>🌸</span><span>✨</span><span>🌹</span><span>💕</span><span>💖</span>
+      </div>
+
+      <div class="page4-wrap">
+        <header class="page4-head">
+          <p class="eyebrow">Gift Room</p>
+          <h1>A little gift for Aya</h1>
+          <p>افتحي الهدية الصغيرة دي... وشوفي الخلفية واسمعيها، كل حاجة هنا معمولة مخصوص ليكي 💗</p>
+        </header>
+
+        <div id="bigGift" class="big-gift" role="button" tabindex="0" aria-label="Open the gift">
+          <div class="gift-lid"></div>
+          <div class="gift-ribbon-v"></div>
+          <div class="gift-ribbon-h"></div>
+          <div class="gift-box-body"></div>
+          <div class="gift-bow-3d">🎀</div>
+          <div class="gift-tap">Tap to open 🎁</div>
+        </div>
+
+        <div id="giftCards" class="gift-cards">
+          <article class="surprise-card card-one long-message-card">
+            <div class="card-icon">💌</div>
+            <h2>A message for Aya</h2>
+            <p>
+              Aya, this little surprise is not just a page on a screen...
+              it is a small place I made so you can feel how special you are.
+            </p>
+            <p>
+              You have a way of making ordinary moments feel softer,
+              warmer, and more beautiful without even trying.
+            </p>
+            <p class="ar">
+              أية، كل سنة وإنتِ طيبة يا أجمل صدفة حلوة.
+              وجودك مش مجرد حاجة بتعدي في اليوم...
+              وجودك بيغيّر شكل اليوم كله.
+            </p>
+            <div class="poem-box" dir="rtl">
+              <p>يا وردةً لو مرّت على القلب ابتسم،</p>
+              <p>ويا ضحكةً تخلي التعب فجأة ينام،</p>
+              <p>فيكي من الهدوء حكاية جميلة،</p>
+              <p>وفي حضورك بيحلى الكلام.</p>
+            </div>
+          </article>
+
+          <article class="surprise-card card-two">
+            <div class="card-icon">🌸</div>
+            <h2>Why you are special</h2>
+            <ul>
+              <li>Your smile makes everything softer.</li>
+              <li>Your kindness feels like home.</li>
+              <li>Your presence is the best surprise.</li>
+            </ul>
+          </article>
+
+          <article class="surprise-card card-three">
+            <div class="card-icon">🎁</div>
+            <h2>One last surprise</h2>
+            <p>
+              This is not the end...<br>
+              there is still one more thing waiting for you.
+            </p>
+            <button id="page4NextBtn" class="primary-btn" type="button">Open the next surprise 💗</button>
+          </article>
+        </div>
+
+        <button id="backToCat" class="page4-back" type="button">← Back to cat game</button>
+      </div>
+    </section>
+    <!-- PAGE 5 -->
+    <section id="heartsScreen" class="screen page5-screen">
+      <div class="video-strip-bg optimized-strips more-bg-videos" aria-hidden="true">
+        <div class="video-row row-one opt-row">
+          <div class="opt-track track-a">
+            <video class="opt-strip-video" data-strip-video="0" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="1" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="2" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="3" autoplay muted loop playsinline preload="metadata"></video>
+          </div>
+        </div>
+        <div class="video-row row-two opt-row">
+          <div class="opt-track track-b">
+            <video class="opt-strip-video" data-strip-video="4" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="5" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="6" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="7" autoplay muted loop playsinline preload="metadata"></video>
+          </div>
+        </div>
+        <div class="video-row row-three opt-row">
+          <div class="opt-track track-c">
+            <video class="opt-strip-video" data-strip-video="8" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="9" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="10" autoplay muted loop playsinline preload="metadata"></video>
+            <video class="opt-strip-video" data-strip-video="11" autoplay muted loop playsinline preload="metadata"></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="page5-dark-overlay"></div>
+      <div class="page5-glow"></div>
+
+      <div class="page5-wrap">
+        <header class="page5-head">
+          <p class="eyebrow">Five Hearts</p>
+          <h1>Open 5 Hearts</h1>
+          <p>الخلفية دلوقتي فيديوهات متحركة، وبعد كده كل قلب هيبقى جواه فيديو مخصوص 💗</p>
+        </header>
+
+        <div class="heart-orbit">
+          <button class="magic-heart heart-1" type="button" data-heart="1">
+            <span class="heart-shape">♥</span>
+            <span class="heart-number">01</span>
+            <span class="heart-label">Video 01</span>
+          </button>
+
+          <button class="magic-heart heart-2" type="button" data-heart="2">
+            <span class="heart-shape">♥</span>
+            <span class="heart-number">02</span>
+            <span class="heart-label">Video 02</span>
+          </button>
+
+          <button class="magic-heart heart-3" type="button" data-heart="3">
+            <span class="heart-shape">♥</span>
+            <span class="heart-number">03</span>
+            <span class="heart-label">Video 03</span>
+          </button>
+
+          <button class="magic-heart heart-4" type="button" data-heart="4">
+            <span class="heart-shape">♥</span>
+            <span class="heart-number">04</span>
+            <span class="heart-label">Video 04</span>
+          </button>
+
+          <button class="magic-heart heart-5" type="button" data-heart="5">
+            <span class="heart-shape">♥</span>
+            <span class="heart-number">05</span>
+            <span class="heart-label">Final Question</span>
+          </button>
+        </div>
+
+        <div class="page5-actions">
+          <button id="backToPage4" class="page5-back" type="button">← Back to gift room</button>
+          <button id="page5Continue" class="page5-next" type="button">Next later 💗</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HEART VIDEO PAGE -->
+    <section id="heartVideoScreen" class="screen heart-video-page-screen">
+      <div class="heart-page-bg" aria-hidden="true">
+        <span>💗</span><span>🌸</span><span>💕</span><span>🌹</span><span>✨</span>
+        <span>💖</span><span>🌷</span><span>💗</span><span>🌸</span><span>💕</span>
+      </div>
+
+      <div class="heart-video-page-wrap">
+        <header class="heart-video-page-head">
+          <p class="eyebrow">Heart Video</p>
+          <h1 id="heartVideoPageTitle">Heart 1</h1>
+          <p>الفيديو الخاص بالقلب ده 💗</p>
+        </header>
+
+        <div class="single-heart-video-card">
+          <video id="singleHeartVideo" class="single-heart-video" controls playsinline preload="auto"></video>
+        </div>
+
+        <div class="heart-video-page-actions">
+          <button id="singleHeartPlay" class="page-heart-play" type="button">تشغيل الفيديو ▶</button>
+          <button id="backFromHeartVideo" class="page-heart-back" type="button">← Back to hearts</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEART VIDEO MODAL -->
+    <div id="heartVideoModal" class="heart-video-modal hidden" aria-hidden="true">
+      <div class="heart-modal-backdrop"></div>
+      <div class="heart-modal-card">
+        <button id="closeHeartVideo" class="heart-modal-close" type="button">×</button>
+        <p id="heartModalTitle" class="heart-modal-title">Heart Video</p>
+        <video id="heartModalVideo" class="heart-modal-video" controls playsinline preload="auto"></video>
+        <button id="forcePlayHeartVideo" class="heart-video-play" type="button">تشغيل الفيديو ▶</button>
+      </div>
+    </div>
+
+    <!-- PAGE 6 -->
+    <section id="finalQuestionScreen" class="screen page6-screen">
+      <div class="page6-bg-hearts" aria-hidden="true">
+        <span>💗</span><span>🌸</span><span>💕</span><span>🌹</span><span>✨</span>
+        <span>💖</span><span>🌷</span><span>💗</span><span>🌸</span><span>💕</span>
+      </div>
+
+      <div class="page6-wrap">
+        <article class="final-question-card">
+          <p class="eyebrow">Final Question</p>
+          <h1>Do you accept this little surprise?</h1>
+          <p class="final-ar">تقبلي المفاجأة الصغيرة دي؟ 💗</p>
+
+          <div class="love-meter">
+            <div class="meter-top">
+              <span>Surprise meter</span>
+              <strong id="meterValue">10 / 10</strong>
+            </div>
+            <input id="surpriseMeter" class="meter-range" type="range" min="0" max="10" value="10" step="1" />
+            <div class="meter-numbers">
+              <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+            </div>
+          </div>
+
+          <div class="final-buttons">
+            <button id="finalYes" class="final-btn yes" type="button">Yes 💗</button>
+            <button id="finalOfCourse" class="final-btn ofcourse" type="button">Of course yes 😌</button>
+          </div>
+
+          <p id="finalMessage" class="final-message hidden">
+            She accepted the surprise 💗<br>
+            كل سنة وإنتِ طيبة يا أية 🌸
+          </p>
+
+          <button id="backToHearts" class="page6-back" type="button">← Back to hearts</button>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
